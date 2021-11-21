@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Gestion des étudiants</h1>
+    <div class="createStudent">
+        
+        <h2>Inscription :</h2>
+           
+            <form action="" method="post">
+                <label for="lastName"><b>Nom</b></label>
+                <input type="text" placeholder="Last Name" name="lastName" id="lastName" required>
+                <label for="firstName"><b>Prénom</b></label>
+                <input type="text" placeholder="First Name" name="firstName" id="firstName" required>
+                <button type="submit" class="createStudentButton" >Inscrire</button>
+            </form>
+        </div>
+
+    <h2>Liste des étudiants:</h2>
+    <div class="listStudent">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < studentList.length; i++ ) { %>
+                <tr>
+                    <td><%= studentList[i].lastName %></td>
+                    <td><%= studentList[i].firstName %></td>
+                    <td><form method="delete"><input type="submit" name="delete" value="Supprimer" /></form></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+            
+    </div>
+    
+</body>
+</html>

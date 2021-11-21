@@ -1,14 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const debug = require('debug')('monprojetdemo:api:student');
-const mysql = require('mysql2');
-
-// create the connection to database
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'studentdb'
-});
+const connection = require('../db_connect').connection;
 
 const studentList = [];
 
@@ -21,7 +14,7 @@ router.get('/', function(req, res, next) {
       if (err) {
         debug(err);
       } else {
-        res.json(results);
+        res.render('students',{studentList:results});
       }
     }
   );
@@ -37,7 +30,7 @@ router.post('/', (req, res) => {
       if (err) {
         debug(err);
       } else {
-        res.status(201).send("Student created");
+        res.redirect('/students');
       }
     }
   );
@@ -58,6 +51,22 @@ router.get('/:id', (req, res) => {
         } else {
           res.status(404).send("Student not found");
         }
+      }
+    }
+  );
+});
+
+router.delete('/:id', (req, res) => {
+  debug("Delete student");
+  const studentId = req.params.id;
+  connection.query(
+    'DELETE FROM `students` WHERE id = ?',
+    [ studentId ],
+    (err, results, fields) => {
+      if (err) {
+        debug(err);
+      } else {
+        res.redirect('/students');
       }
     }
   );
