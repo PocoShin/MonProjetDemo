@@ -6,6 +6,14 @@ POST http://localhost:3000/students
 content-type: application/json
 
 {
-    "firstName": "Hatim",
-    "lastName": "Naimi"
+    "firstName": "Mathieu",
+    "lastName": "Malbrecq"
 }
+
+###
+
+GET http://localhost:3000/students/2
+
+###
+
+DELETE http://localhost:3000/students/2
