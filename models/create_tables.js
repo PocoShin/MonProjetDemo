@@ -1,4 +1,4 @@
-const { sequelize } = require('./models/students');
+const { sequelize } = require('./student');
 
 (async () => {
   await sequelize.sync({ force: true });
