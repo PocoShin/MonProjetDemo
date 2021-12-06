@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "DEBUG=monprojetdemo:* nodemon ./bin/www",
-    "create_database": "DEBUG=monprojetdemo:* node ./create_database.js",
+    "dev": "DEBUG=monprojetdemo:* NODE_ENV=development nodemon ./bin/www",
+    "create_database": "DEBUG=monprojetdemo:* node ./models/create_database.js",
     "create_tables": "DEBUG=monprojetdemo:* node ./models/create_tables.js",
     "import_samples": "DEBUG=monprojetdemo:* node ./models/import_samples.js"
   },
@@ -15,12 +15,15 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "mariadb": "^2.5.5",
     "morgan": "~1.9.1",
     "mysql2": "^2.3.3-rc.0",
     "rotating-file-stream": "^3.0.1",
-    "sequelize": "^6.12.0-alpha.1"
+    "sequelize": "^6.12.0-alpha.1",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.13",
+    "prettier": "2.5.0"
   }
 }

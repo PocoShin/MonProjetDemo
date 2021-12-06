@@ -9,7 +9,7 @@ class TeachingPeriod extends Model {}
 TeachingPeriod.init(
   {
     date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     beginning: {
