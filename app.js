@@ -1,3 +1,4 @@
+require('dotenv').config();
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -8,9 +9,9 @@ const debug = require("debug")("monprojetdemo:config");
 const favicon = require("serve-favicon");
 
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
 const studentsRouter = require("./routes/students");
 const classesRouter = require("./routes/classes");
+const tokensRouter = require("./routes/tokens");
 
 debug("Configuring app server");
 
@@ -34,9 +35,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 app.use("/students", studentsRouter);
 app.use("/classes", classesRouter);
+app.use("/tokens", tokensRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
